@@ -43,3 +43,5 @@ public class PuntiRetteMain {
 	}
 
 }
+//ora dovrebe esserci questo file punti rette sul github, so che non hai capito na ceppa manco io ma funziona, 
+//commento scritto da ghidini OwO
