@@ -2,11 +2,23 @@ package it.progarnaldo.codicifiscali;
 
 import java.util.Arrays;
 
+
+/**
+ * Class with methods for calculating the fiscal code of a given person
+ * or to check if a given code is valid.
+ */
 public class FiscalCodeUtils {
 	
+	/**
+	 * Calculate the fiscal code for the given <code>Persona</code>.
+	 * 
+	 * @param p the <code>Persona</code> from which to calculate the fiscal code
+	 * @param comuniMap a <code>StringMap<code> used to get the "Belfiore code"
+	 * @return the fiscal code for the given <code>Persona</code>.
+	 */
 	public static String calculateCodeFromPerson(Persona p, StringMap comuniMap) {
 		String str = modificaNC(p.cognome, false)
-					+ modificaNC(p.nome, false)
+					+ modificaNC(p.nome, true)
 					+ getData(p)
 					+ comuniMap.get(p.comune_nascita);
 		str = str.toUpperCase();
@@ -94,6 +106,13 @@ public class FiscalCodeUtils {
 	}
 	
 	
+	/**
+	 * Calculate the 16th of the fiscal code, namely the control character,
+	 * from the 15 before it.
+	 * 
+	 * @param str a string with the first 15 character of the fiscal code
+	 * @return the control character
+	 */
 	public static char calculateControlCharacter(String str) {
 		final char[] elencoPari = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 		final int[] elencoDispari = { 1, 0, 5, 7, 9,13,15,17,19,21, 1, 0, 5, 7, 9,13,15,17,
@@ -120,7 +139,12 @@ public class FiscalCodeUtils {
 	}
 	
 	
-	
+	/**
+	 * Return <code>true</code> if the specified fiscal code is valid.
+	 * 
+	 * @param code the fiscal code whose validation is to be checked
+	 * @return <code>true</code> if the specified fiscal code is valid
+	 */
 	public static boolean isValid(String code) {
 		return matchesRegex(code) && isCarattereControlloCorretto(code);
 	}
