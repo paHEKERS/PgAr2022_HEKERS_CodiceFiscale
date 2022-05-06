@@ -186,7 +186,6 @@ public class XMLUtils {
 		iter.forEach((i,m) -> {
 			map.put(m.get(keyName), m.get(valueName));
 		});
-		map.values().iterator().next();
 		return map;
 	}
 	
