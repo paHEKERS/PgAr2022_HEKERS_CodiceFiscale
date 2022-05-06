@@ -22,7 +22,7 @@ public class Main {
 		
 		
 		
-		XMLWriter xmlw = XMLUtils.createWriter(OUTPUT);
+		XMLWriter xmlw = XMLUtils.createXMLWriter(OUTPUT);
 		xmlw.write(() -> {
 		xmlw.tag("output", () -> {
 			

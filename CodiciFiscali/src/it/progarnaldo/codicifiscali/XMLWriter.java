@@ -13,7 +13,7 @@ import javax.xml.stream.XMLStreamWriter;
  */
 public class XMLWriter {
 	
-	private static final String LIST_SIZE_ATTRIBUTE_NAME = "numero";
+	private final String LIST_SIZE_ATTRIBUTE_NAME = "numero";
 	private int indentLevel = 0;
 	private final XMLStreamWriter xmlw;
 	

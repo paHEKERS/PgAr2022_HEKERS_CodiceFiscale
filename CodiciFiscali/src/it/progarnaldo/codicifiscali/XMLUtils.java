@@ -53,7 +53,7 @@ public class XMLUtils {
 	 * @param fileName the name of the file to be written
 	 * @return a new XMLWriter with specified file name
 	 */
-	public static XMLWriter createWriter(String fileName) {
+	public static XMLWriter createXMLWriter(String fileName) {
 		return new XMLWriter(fileName);
 	}
 	
